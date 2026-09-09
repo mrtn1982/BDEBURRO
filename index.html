@@ -1,0 +1,20 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>B de Burro 🫏</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:#050509;color:#fff;font-family:Arial,sans-serif;padding:35px 16px;text-align:center}
+body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 15% 20%,#703cff33,transparent 28%),radial-gradient(circle at 85% 75%,#00d9ff22,transparent 28%);pointer-events:none}
+main{max-width:1100px;margin:auto}.tag{letter-spacing:4px;color:#aaa;font-size:12px}h1{font-size:clamp(55px,10vw,105px);margin:15px 0;background:linear-gradient(90deg,#fff,#a78bfa,#67e8f9,#fff);background-size:250%;-webkit-background-clip:text;color:transparent;animation:shine 5s linear infinite}.lead{color:#aaa;margin-bottom:40px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{padding:25px;border:1px solid #ffffff22;border-radius:25px;background:#ffffff08;backdrop-filter:blur(10px);box-shadow:0 20px 70px #0009;transition:.25s}.card:hover{transform:translateY(-7px)}
+.b{--c:#22aaff}.m{--c:#b65cff}.i{--c:#35ff72}.card{border-color:color-mix(in srgb,var(--c),transparent 45%)}h2{font-size:26px;color:var(--c);min-height:62px}
+button{border:1px solid var(--c);background:#0008;color:#fff;border-radius:12px;padding:13px 20px;font-weight:bold;cursor:pointer;transition:.2s}button:hover{transform:scale(1.05)}
+.result{display:none;margin-top:20px}.result.show{display:block;animation:pop .45s ease}.result img{width:100%;max-height:390px;object-fit:cover;border-radius:16px;border:1px solid #ffffff22}.msg{font-size:20px;font-weight:bold;color:var(--c);margin:10px 0}.random{font-size:13px;color:#aaa}
+footer{margin-top:40px;color:#666;font-size:11px;letter-spacing:2px}@keyframes shine{to{background-position:250%}}@keyframes pop{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}@media(max-width:800px){.cards{grid-template-columns:1fr}.card{max-width:600px;margin:auto}}
+</style></head><body><main><div class="tag">LA PÁGINA DEFINITIVA 🫏</div><h1>B de Burro</h1><p class="lead">Elige sabiamente... o no 😂</p>
+<div class="cards">
+<section class="card b"><h2>🫏 B de Burro</h2><button onclick="show('b')">PRESIONA AQUÍ</button><div id="b" class="result"><div class="msg">¡B DE BURRO! 🫏</div><div class="random"></div></div></section>
+<section class="card m"><h2>🐴 M de Mula</h2><button onclick="show('m')">PRESIONA AQUÍ</button><div id="m" class="result"><div class="msg">¡M DE MULA! 🐴</div><div class="random"></div></div></section>
+<section class="card i"><h2>💻 I de Inseparable de la PC</h2><button onclick="show('i')">PRESIONA AQUÍ</button><div id="i" class="result"><img src="inseparable-pc.jpg" alt="Inseparable de la PC"><div class="msg">¡INSEPARABLE DE LA PC! 💻</div><div class="random"></div></div></section>
+</div><footer>NO HAY RESPUESTAS CORRECTAS, SOLO ELECCIONES.</footer></main>
+<script>
+const jokes={b:["El burro ha sido desbloqueado 🫏","B de Burro: elección legendaria.","BURRO MODE ACTIVADO 💀"],m:["La mula acaba de entrar al chat 🐴","MULA MODE: ACTIVADO.","No preguntes por qué elegiste esto 😂"],i:["La PC no lo deja escapar 💻","INSEPARABLE MODE: ACTIVADO.","Solo una partida más..."]};
+function show(id){document.querySelectorAll(".result").forEach(x=>x.classList.remove("show"));let e=document.getElementById(id);e.classList.add("show");let a=jokes[id];e.querySelector(".random").textContent=a[Math.floor(Math.random()*a.length)];}
+</script></body></html>
