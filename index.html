@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>B de Burro</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;background:#030509}
+.page{position:relative;width:min(1150px,100%);margin:auto}
+.hero{display:block;width:100%;height:auto}
+.hot{position:absolute;background:transparent;border:0;cursor:pointer;border-radius:20px}
+.hot:hover{background:#ffffff08;box-shadow:0 0 25px currentColor}
+.b{left:4%;top:34%;width:29%;height:36%;color:#19aaff}
+.m{left:35%;top:34%;width:30%;height:36%;color:#df2cff}
+.i{left:67%;top:34%;width:29%;height:36%;color:#51ff32}
+.sound{left:2%;top:2%;width:10%;height:7%}
+.who{right:2%;top:2%;width:19%;height:7%}
+.random{left:57%;top:74%;width:35%;height:8%}
+#pop{display:none;position:fixed;inset:0;background:#000d;align-items:center;justify-content:center;padding:18px;z-index:5}
+.modal{max-width:700px;width:95%;background:#080a12;border:2px solid white;border-radius:18px;padding:18px;text-align:center;box-shadow:0 0 40px white}
+.modal img{max-width:100%;max-height:70vh;border-radius:12px}
+.close{margin-top:12px;padding:12px 25px;border-radius:10px;border:2px solid white;background:#080a12;color:white;font-weight:bold}
+</style>
+</head>
+<body>
+<div class="page">
+<img class="hero" src="img/pantalla-principal.png" alt="B de Burro">
+<button class="hot sound" onclick="play('honk.wav')" aria-label="Sonido"></button>
+<button class="hot who" onclick="who()" aria-label="Quiénes somos"></button>
+<button class="hot b" onclick="openPhoto('img/burro.png','B DE BURRO');play('burro.wav')" aria-label="B de Burro"></button>
+<button class="hot m" onclick="openPhoto('img/mula.jpg','M DE MULA');play('mula.wav')" aria-label="M de Mula"></button>
+<button class="hot i" onclick="openPhoto('img/pc.jpg','I DE INSEPARABLE DE LA PC');play('error.wav')" aria-label="Inseparable de la PC"></button>
+<button class="hot random" onclick="randomMsg();play('click.wav')" aria-label="Otro mensaje"></button>
+</div>
+<div id="pop" onclick="closePop(event)">
+ <div class="modal"><h2 id="title"></h2><img id="photo"><br><button class="close" onclick="closePop()">CERRAR</button></div>
+</div>
+<script>
+function play(f){new Audio("sounds/"+f).play().catch(()=>{});}
+function openPhoto(src,t){photo.src=src;title.textContent=t;pop.style.display="flex";}
+function closePop(e){if(!e||e.target.id==="pop"||e.target.className==="close")pop.style.display="none";}
+function who(){alert("Somos B de Burro. No sabemos qué hacemos, pero quedó épico XD.");play("honk.wav");}
+const msgs=["Hoy no se piensa. Hoy se presiona un botón.","Advertencia: esta página puede causar demasiadas XD.","Si llegaste hasta aquí, ya eres parte del problema.","El burro sabe cosas que nosotros no.","Tu PC te necesita. O quizás tú necesitas la PC.","Una decisión puede cambiarlo todo. O nada."];
+function randomMsg(){alert(msgs[Math.floor(Math.random()*msgs.length)]);}
+</script>
+</body>
+</html>
